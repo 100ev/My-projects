@@ -1,0 +1,61 @@
+List<int> numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+            string com = Console.ReadLine();
+
+
+
+
+            while (com != "END")
+            {
+                com = Console.ReadLine();
+                string[] commands = com.Split(' ').ToArray();
+                string operation = commands[0];
+
+                if (operation == "Change")
+                {
+                    int search = int.Parse(commands[1]);
+                    int change = int.Parse(commands[2]);
+
+                    if (numbers.Contains(search))
+                    {
+                        numbers.Remove(search);
+                        numbers.Add(change);
+                    }
+                }
+                else if (operation == "Hide")
+                {
+                    int search = int.Parse(commands[1]);
+                    if (numbers.Contains(search))
+                    {
+                        numbers.Remove(search);
+                    }
+                }
+
+                else if (operation == "Switch")
+                {
+                    int firstEl = int.Parse(commands[1]);
+                    int secondEl = int.Parse(commands[2]);
+
+                    if (numbers.Contains(firstEl) && numbers.Contains(secondEl))
+                    {
+                        int swap = 0;
+                        firstEl = swap;
+                        swap = secondEl;
+                        secondEl = firstEl;
+                    }
+                }
+
+                else if (operation == "Insert")
+                {
+                    int index = int.Parse(commands[1]);
+                    int number = int.Parse(commands[2]);
+                    if (!numbers.Contains(number))
+                    {
+                        continue;
+                    }
+                }
+                else if (operation == "Reverse")
+                {
+                    numbers.Reverse();
+                }
+            }
+            Console.WriteLine(String.Join(" ", numbers));

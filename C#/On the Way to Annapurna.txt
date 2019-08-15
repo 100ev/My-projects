@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Numerics;
+using System.Globalization;
+using System.Text.RegularExpressions;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string input = Console.ReadLine();
+            var notes = new Dictionary<string, List<string>>();
+
+            while (true)
+            {
+                if (input == "END")
+                {
+                    break;
+                }
+
+                string[] data = input.Split(new string[] { "->", "," }, StringSplitOptions.RemoveEmptyEntries);
+                
+                if (data[0] == "Add")
+                {
+                    string store = data[1];
+                    List<string> items = new List<string>();
+                    for (int i = 2; i < data.Length; i++)
+                    {
+                        data[i] = Console.ReadLine();
+                        items.Add(data[i]);
+                    }
+                    if (!notes.ContainsKey(store))
+                    {
+                        notes.Add(store, new List<string>());
+                    }
+                    notes[store] = items;                  
+                }
+
+                else if (data[0] == "Remove")
+                {
+                    string store = data[1];
+                    if (notes.ContainsKey(store))
+                    {
+                        notes.Remove(store);
+                    }
+                }
+                
+            }
+
+            Console.WriteLine("Stores list:");
+            foreach (var store in notes)
+            {
+                Console.WriteLine(store.Key.OrderByDescending(x => x));
+                foreach (var item in store.Value)
+                {
+                    Console.WriteLine($"<<{item}>>");
+                }
+            }
+        }
+    }
+}

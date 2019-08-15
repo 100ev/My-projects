@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            int plundByDay = int.Parse(Console.ReadLine());
+            int startPlund = int.Parse(Console.ReadLine());
+
+            double percentage = 0;
+            double daylyPlund = 0;
+            double percGain = 0;
+            double percLost = 0;
+            
+            for (int i = 0; i < days; i++)
+            {
+                daylyPlund += plundByDay;
+                
+                if (i % 3 == 0)
+                {
+                    double gain = plundByDay * 0.5;
+                    daylyPlund -= gain;
+                    percGain = gain;                    
+                }
+
+                if (i % 5 == 0)
+                {
+                    double lost = daylyPlund * 0.3;
+                    daylyPlund -= lost;
+                    percLost = lost;                  
+                }
+                double percCalc = percLost * 0.1 + percGain * 0.1;
+                percentage = percGain + percLost;
+                percentage -= percCalc;
+            }
+
+            if (daylyPlund >= startPlund)
+            {
+                Console.WriteLine("Ahoy! {0:f2} plunder gained.", daylyPlund);
+            }
+            else
+            {
+                
+                Console.WriteLine("Collected only {0:f2}% of the plunder.",percentage);
+            }
+        }
+    }
+}
