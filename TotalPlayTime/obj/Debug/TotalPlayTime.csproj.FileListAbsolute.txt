@@ -1,0 +1,7 @@
+C:\Users\USER\source\repos\TotalPlayTime\TotalPlayTime\obj\Debug\TotalPlayTime.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\TotalPlayTime\TotalPlayTime\obj\Debug\TotalPlayTime.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\TotalPlayTime\TotalPlayTime\bin\Debug\TotalPlayTime.exe.config
+C:\Users\USER\source\repos\TotalPlayTime\TotalPlayTime\bin\Debug\TotalPlayTime.exe
+C:\Users\USER\source\repos\TotalPlayTime\TotalPlayTime\bin\Debug\TotalPlayTime.pdb
+C:\Users\USER\source\repos\TotalPlayTime\TotalPlayTime\obj\Debug\TotalPlayTime.exe
+C:\Users\USER\source\repos\TotalPlayTime\TotalPlayTime\obj\Debug\TotalPlayTime.pdb
