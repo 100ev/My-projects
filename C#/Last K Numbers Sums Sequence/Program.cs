@@ -19,7 +19,7 @@ namespace Last_K_Numbers_Sums_Sequence
             for (int i = 1; i < arr.Length; i++)
             {
                 int start = Math.Max(0, i - k);
-                int end = i - 1;
+                int end = arr.Length - 1;
                 int sum = 0;
                 for (int j = start; j <= end; j++)
                 {
