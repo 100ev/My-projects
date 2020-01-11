@@ -36,10 +36,10 @@ namespace Population_Counter
 
             foreach (var country in countries.OrderByDescending(n => n.Value.Values.Sum()))
             {
-                Console.WriteLine($"{country.Key} total population: {country.Value.Values.Sum()}");
+                Console.WriteLine($"{country.Key} (total population: {country.Value.Values.Sum()})");
                 foreach (var city in country.Value.OrderByDescending(c => c.Value))
                 {
-                    Console.WriteLine($"{city.Key} -> {city.Value}");
+                    Console.WriteLine($"=> {city.Key} : {city.Value}");
                 }
             }
         }
