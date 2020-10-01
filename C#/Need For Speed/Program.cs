@@ -6,6 +6,31 @@ namespace Need_For_Speed
 {    
     class Program
     {
+         public static void Main(string[] args)
+        {
+            var cars = readCarsFromConsole();
+            string command = Console.ReadLine();
+            while (command != "Stop")
+            {
+                string[] operationArguments = command.Split(new string[] { " : " }, StringSplitOptions.RemoveEmptyEntries);
+                string[] operationArgumentsWithoutCommand = operationArguments.Where(w => w != operationArguments[0]).ToArray();
+                if (operationArguments[0] == "Drive")
+                {
+                    executeDriveCommandWithArgumentsOverGivenDictionary(cars, operationArgumentsWithoutCommand);
+                }
+                else if (operationArguments[0] == "Refuel")
+                {
+                    executeRefuelCommandWithArgumentsOverGivenDictionary(cars, operationArgumentsWithoutCommand);
+                }
+                else
+                {
+                    executeRevertCommandWithArgumentsOverGivenDictionary(cars, operationArgumentsWithoutCommand);
+                }
+                command = Console.ReadLine();
+            }
+            printAllCarsInfo(cars);
+        }
+        
         public static Dictionary<string, Dictionary<string, long>> readCarsFromConsole()
         {
             int n = int.Parse(Console.ReadLine());
@@ -94,30 +119,6 @@ namespace Need_For_Speed
             {
                 carDict["mileage"] = 10000;
             }
-        }
-        public static void Main(string[] args)
-        {
-            var cars = readCarsFromConsole();
-            string command = Console.ReadLine();
-            while (command != "Stop")
-            {
-                string[] operationArguments = command.Split(new string[] { " : " }, StringSplitOptions.RemoveEmptyEntries);
-                string[] operationArgumentsWithoutCommand = operationArguments.Where(w => w != operationArguments[0]).ToArray();
-                if (operationArguments[0] == "Drive")
-                {
-                    executeDriveCommandWithArgumentsOverGivenDictionary(cars, operationArgumentsWithoutCommand);
-                }
-                else if (operationArguments[0] == "Refuel")
-                {
-                    executeRefuelCommandWithArgumentsOverGivenDictionary(cars, operationArgumentsWithoutCommand);
-                }
-                else
-                {
-                    executeRevertCommandWithArgumentsOverGivenDictionary(cars, operationArgumentsWithoutCommand);
-                }
-                command = Console.ReadLine();
-            }
-            printAllCarsInfo(cars);
         }
     }
 }
