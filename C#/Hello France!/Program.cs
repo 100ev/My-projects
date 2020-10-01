@@ -19,7 +19,7 @@ namespace Hello_France_
             for (int i = 0; i < input.Count; i++)
             {
                 List<string> data = input[i]
-                    .Split(new string[] { "->" }, StringSplitOptions.RemoveEmptyEntries)
+                    .Split("->")
                     .ToList();
                 string item = data[0];
                 double price = double.Parse(data[1]);
