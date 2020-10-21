@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Linq;
 
-namespace TriFynction
+namespace TriFunction
 {
     class Program
     {
