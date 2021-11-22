@@ -25,11 +25,7 @@ namespace Cooking
                 if (ingredients.Count == 0 || liquids.Count == 0)
                 {
                     break;
-                }
-                //if (liquids.Count == 0)
-                //{
-                //    break;
-                //}
+                }                
                 if (liquids.Peek() + ingredients.Peek() == 25)
                 {
                     meals["Bread"]++;
